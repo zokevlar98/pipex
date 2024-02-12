@@ -10,5 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
+int main(int argc, char *argv[], char *env[])
+{
+	if(argc != 5)
+
+	return (0);
+}
