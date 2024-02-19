@@ -1,19 +1,23 @@
-NAME = pipex.a
+NAME = pipex
 
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-SRCS =	mandatory/pipex.c	\
-		gnl/get_next_line.c	\
-		gnl/get_next_line_utils.c	\
+SRCS =	mandatory/pipex.c			\
+		mandatory/error.c			\
+		fonctions/ft_putchar_fd.c	\
+		fonctions/ft_putstr_fd.c	\
+		fonctions/ft_strlen.c		\
+		#gnl/get_next_line.c			\
+		#gnl/get_next_line_utils.c	\
 
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.c includes/pipex.h Makefile
 	cc $(CFLAGS) -c $< -o $@
