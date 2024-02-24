@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:05 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/24 14:42:10 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:04:17 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ char	**ft_split(char *s, char c);
 void	ft_free(char **tab);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*my_malloc(size_t size);
 #endif

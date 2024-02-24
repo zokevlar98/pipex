@@ -6,16 +6,11 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:03 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/24 15:05:16 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:06:20 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-
-//void	process_parent(int *fd, char *argv[], char *envp[])
-//{
-	
-//}
 
 void	process_child(int *fd, char *argv[], char *envp[])
 {
@@ -73,7 +68,7 @@ int	main(int argc, char *argv[], char *envp[])
 	}
 	else
 	{
-		ft_putstr_fd("\033[31mError:Bad arguments\n", 2);
+		ft_putstr_fd("\033[31mError: Bad arguments\n", 2);
 		ft_putstr_fd("Like : ./pipex file1 cmd1 cmd2 file2\n", 1);
 		exit (EXIT_FAILURE);
 	}

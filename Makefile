@@ -1,6 +1,6 @@
 NAME = pipex
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 

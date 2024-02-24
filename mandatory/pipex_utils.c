@@ -30,7 +30,7 @@ char	*find_path_env(char *cmd, char *envp[])
 		path = ft_strjoin(tmp, cmd);
 		free(tmp);
 		if (access(path, F_OK) == 0)
-			return (ft_free(path_s), path);// imkan 5assa free l arr 2 dimontion
+			return (path);// imkan 5assa free l arr 2 dimontion
 		free(path);
 		i++;
 	}

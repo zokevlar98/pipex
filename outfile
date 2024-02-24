@@ -1,4 +1,1 @@
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-all : $(NAME)
-re: fclean all
-.PHONY: all clean fclean re
+      12
