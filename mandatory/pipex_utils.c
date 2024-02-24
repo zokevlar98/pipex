@@ -12,3 +12,4 @@
 
 #include "../includes/pipex.h"
 
+//ft_exec(env, ) argv[2] => parsse => access == 1 => (9bal parssi path arr)execv

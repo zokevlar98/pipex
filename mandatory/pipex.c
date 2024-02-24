@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:03 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/19 22:51:51 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/24 00:54:18 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,29 @@ void	process_child(int *fd, char *argv[], char *envp[])
 	//execution
 }
 
+void	process_child_2(int *fd, char *argv[], char *envp[])
+{
+	int	output_file;
+	char	Buffer[100000];
+
+	output_file = open(argv[4], O_WRONLY, 0666);
+	if (output_file == -1)
+		error();
+	if (dup2(fd[0], STDIN_FILENO) == -1)
+		error();
+	//if (read(fd[0], Buffer, sizeof(Buffer)) == -1)
+	//	error();
+	if (dup2(output_file, STDOUT_FILENO) == -1)
+		error();
+	(close(fd[1]),close (fd[0]));
+	close(output_file);
+	//execution
+}
+
 int	main(int argc, char *argv[], char *envp[])
 {
 	int		fd[2];
 	pid_t	pid;
-	(void)argv;
-	(void)envp;
 	
 	if (argc == 5)
 	{
@@ -52,7 +69,7 @@ int	main(int argc, char *argv[], char *envp[])
 			process_child(fd, argv, envp);
 		pid = fork();
 		if(pid == 0)
-			process_child2();
+			process_child_2(fd, argv, envp);
 		wait(NULL);
 		wait(NULL);
 		

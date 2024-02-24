@@ -9,7 +9,7 @@ SRCS =	mandatory/pipex.c			\
 		fonctions/ft_putchar_fd.c	\
 		fonctions/ft_putstr_fd.c	\
 		fonctions/ft_strlen.c		\
-		#gnl/get_next_line.c			\
+		#gnl/get_next_line.c		\
 		#gnl/get_next_line_utils.c	\
 
 OBJS = $(SRCS:.c=.o)

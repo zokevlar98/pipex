@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:05 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/19 21:46:45 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/20 12:05:28 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 size_t	ft_strlen(char *str);
 void	error(void);
+char	**ft_split(char *s, char c);
+char	*ft_strjoin(char *s1, char *s2);
 #endif
