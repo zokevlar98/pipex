@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:05 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/24 16:04:17 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/26 19:06:00 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stddef.h>
 # include <sys/wait.h>
+# include "../gnl/get_next_line.h"
 
 //void	process_parent(int *fd, char *argv[], char *envp[]);
 void	process_child(int *fd, char *argv[], char *envp[]);
@@ -35,4 +36,7 @@ void	ft_free(char **tab);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*my_malloc(size_t size);
+int		ft_open(char *argv, int index);
+void	ft_exeption(void);
+char	*get_next_line(int fd);
 #endif

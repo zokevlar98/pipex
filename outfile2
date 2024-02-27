@@ -6,4 +6,6 @@ includes
 infile
 mandatory
 outfile
+outfile1
+outfile2
 pipex

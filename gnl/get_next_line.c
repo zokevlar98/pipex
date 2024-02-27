@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:53:32 by zqouri            #+#    #+#             */
-/*   Updated: 2024/01/18 18:39:44 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/02/26 18:53:15 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*rest_line(char *line)
 		return (NULL);
 	while (line[i] && line[i] != '\n')
 		i++;
-	str = (char *)malloc(sizeof(char) * (ft_strlen(line) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen_get_next(line) - i + 1));
 	if (!str)
 		return (NULL);
 	if (line[i])
@@ -87,7 +87,7 @@ char	*readed(int fd, char *line)
 		if (char_read == -1)
 			return (line = NULL, free(buffer), NULL);
 		buffer[char_read] = '\0';
-		line = ft_strjoin(line, buffer);
+		line = ft_strjoin_get_next(line, buffer);
 	}
 	return (free(buffer), line);
 }
