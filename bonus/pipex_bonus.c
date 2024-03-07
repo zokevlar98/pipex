@@ -6,65 +6,40 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:09:33 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/07 21:12:55 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/08 00:24:57 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	get_line(char *LIMITER, int filename)
-{
-	char *ligne;
-	
-	while (1)
-	{
-		ligne = get_next_line(STDIN_FILENO);
-		if(ligne == NULL)
-			break ;
-		if (ft_strncmp(ligne, LIMITER, ft_strlen(LIMITER)) == 0)
-			exit(EXIT_SUCCESS);
-		write(filename, ligne, ft_strlen(ligne));
-		//write(fd[1], ligne, ft_strlen(ligne));
-	}
-	free(ligne);
-}
 
 void	here_doc(int argc, char *LIMITER)
 {
-	pid_t	pid;
-	char	*ligne;
 	int		fd[2];
-	int		filename;
+	char	*line;
 	
 	if (argc >= 6)
 	{
-		filename = ft_open("tmp1", 0);
-		get_line(LIMITER, filename);
-		close(filename);
 		if (pipe(fd) == -1)
 			error();
-		pid = fork();
-		if (pid == -1)
-			error();
-		if (pid == 0)
+		//close(fd[0]);
+		while (1)
 		{
-			while (1)
+			ft_putstr_fd("Heredoc> ", 1);
+			line = get_next_line(STDIN_FILENO);
+			if(!line || !ft_strncmp(line, LIMITER, ft_strlen(LIMITER)))
 			{
-				ligne = get_next_line(filename);
-				if (ligne == NULL)
-					break ;
-				write(fd[1], ligne, ft_strlen(ligne));
+				if (line)
+					free (line);
+				break ;
 			}
-			close(fd[0]);
-			//if (unlink("../bonus/tmp1") == -1)
-			//	error();
+			write(fd[1], line, ft_strlen(line));
+			write(fd[1], "\n", 1);
+			free(line);
 		}
-		else
-		{
-			close(fd[1]);
-			dup2(fd[0], STDIN_FILENO);
-			//waitpid(pid, NULL, 0);
-		}
+		close(fd[1]);
+		dup2(fd[0], STDIN_FILENO);
+		//waitpid(pid, NULL, 0);
 	}
 	else
 		ft_exeption();
@@ -93,6 +68,7 @@ void	child_process(char *argv, char *envp[])
 		//waitpid(pid, NULL, 0);
 	}
 }
+
 void last_routine(char *cmd, int filename, char **envp)
 {
 	int pid;

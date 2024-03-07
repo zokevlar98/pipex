@@ -20,6 +20,11 @@ char	*find_path_env(char *cmd, char *envp[])
 	char	*tmp;
 
 	i = 0;
+	if (ft_strchr(cmd, '/'))
+	{
+		if (access(cmd, F_OK) == 0)
+			return (cmd);
+	}
 	while (ft_strncmp(envp[i], "PATH", 4) != 0)
 		i++;
 	path_s = ft_split(envp[i] + 5, ':');

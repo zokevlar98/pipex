@@ -7,12 +7,13 @@ RM = rm -rf
 SRCS =	mandatory/pipex.c				\
 		mandatory/error.c				\
 		mandatory/pipex_utils.c			\
-		fonctions/ft_putchar_fd.c		\
 		fonctions/ft_putstr_fd.c		\
 		fonctions/ft_strlen.c			\
 		fonctions/ft_split.c			\
 		fonctions/ft_strjoin.c			\
 		fonctions/ft_strncmp.c			\
+		gnl/get_next_line.c				\
+		gnl/get_next_line_utils.c		\
 
 BSRCS =	bonus/pipex_bonus.c				\
 		bonus/pipex_utils_bonus.c		\
@@ -20,7 +21,6 @@ BSRCS =	bonus/pipex_bonus.c				\
 		gnl/get_next_line_utils.c		\
 		mandatory/error.c				\
 		mandatory/pipex_utils.c			\
-		fonctions/ft_putchar_fd.c		\
 		fonctions/ft_putstr_fd.c		\
 		fonctions/ft_strlen.c			\
 		fonctions/ft_split.c			\
