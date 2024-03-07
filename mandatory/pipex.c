@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:03 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/27 21:07:53 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/07 21:26:59 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,32 +51,31 @@ void	process_child_2(int *fd, char *argv[], char *envp[])
 //	system("leaks pipex");
 //}
 
-//int	main(int argc, char *argv[], char *envp[])
-//{
-//	int		fd[2];
-//	pid_t	pid;
-	
-//	atexit(ff);
-//	if (argc == 5)
-//	{
-//		if (pipe(fd) == -1)
-//			error();
-//		pid = fork();
-//		if (pid == -1)
-//			error();
-//		if (pid == 0)
-//			process_child(fd, argv, envp);
-//		waitpid(pid, NULL, 0);
-//		pid = fork();
-//		if(pid == 0)
-//			process_child_2(fd, argv, envp);
-//		//waitpid(pid, NULL, 0);
-//	}
-//	else
-//	{
-//		ft_putstr_fd("\033[31mError: Bad arguments\n", 2);
-//		ft_putstr_fd("Like : ./pipex file1 cmd1 cmd2 file2\n", 1);
-//		exit (EXIT_FAILURE);
-//	}
-//	return (0);
-//}
+int	main(int argc, char *argv[], char *envp[])
+{
+	int		fd[2];
+	pid_t	pid;
+
+	if (argc == 5)
+	{
+		if (pipe(fd) == -1)
+			error();
+		pid = fork();
+		if (pid == -1)
+			error();
+		if (pid == 0)
+			process_child(fd, argv, envp);
+		waitpid(pid, NULL, 0);
+		pid = fork();
+		if(pid == 0)
+			process_child_2(fd, argv, envp);
+		//waitpid(pid, NULL, 0);
+	}
+	else
+	{
+		ft_putstr_fd("\033[31mError: Bad arguments\n", 2);
+		ft_putstr_fd("Like : ./pipex file1 cmd1 cmd2 file2\n", 1);
+		exit (EXIT_FAILURE);
+	}
+	return (0);
+}

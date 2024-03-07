@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:09:33 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/27 21:50:01 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/07 21:12:55 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	here_doc(int argc, char *LIMITER)
 				write(fd[1], ligne, ft_strlen(ligne));
 			}
 			close(fd[0]);
-			if (unlink("../bonus/tmp1") == -1)
-				error();
+			//if (unlink("../bonus/tmp1") == -1)
+			//	error();
 		}
 		else
 		{
