@@ -6,11 +6,12 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:45:44 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/20 11:58:04 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/08 09:17:09 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {

@@ -6,17 +6,17 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:09:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/02/26 15:40:12 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/08 08:13:12 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 void	ft_exeption(void)
 {
 	ft_putstr_fd("\033[31mError: Bad arguments\n", 2);
 	ft_putstr_fd("Like : ./pipex file1 cmd1 cmd2 cmd3 ... file2\n", 1);
-	ft_putstr_fd("     : ./pipex  here_doc LIMITER cmd1 cmd2 cmd3 ... file2\n", 1);
+	ft_putstr_fd("     : ./pipex here_doc LIMITER cmd1 cmd2 file\n", 1);
 	exit (EXIT_FAILURE);
 }
 

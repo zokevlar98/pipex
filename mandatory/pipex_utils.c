@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+#include "../includes/pipex_bonus.h"
 
 char	*find_path_env(char *cmd, char *envp[])
 {
@@ -29,15 +30,14 @@ char	*find_path_env(char *cmd, char *envp[])
 		i++;
 	path_s = ft_split(envp[i] + 5, ':');
 	i = 0;
-	while (path_s[i])
+	while (path_s[i++])
 	{
 		tmp = ft_strjoin(path_s[i], "/");
 		path = ft_strjoin(tmp, cmd);
 		free(tmp);
 		if (access(path, F_OK) == 0)
-			return (path);// imkan 5assa free l arr 2 dimontion
+			return (path);
 		free(path);
-		i++;
 	}
 	return (ft_free(path_s), NULL);
 }
@@ -47,8 +47,8 @@ void	execute(char *cmd, char *envp[])
 	char	**command;
 	char	*path;
 
-	command = ft_split(cmd, ' ');
-	path = find_path_env(command[0] , envp);
+	command = ft_split_up(cmd);
+	path = find_path_env(command[0], envp);
 	if (!path)
 	{
 		ft_free(command);

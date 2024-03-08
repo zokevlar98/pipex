@@ -12,6 +12,7 @@ SRCS =	mandatory/pipex.c				\
 		fonctions/ft_split.c			\
 		fonctions/ft_strjoin.c			\
 		fonctions/ft_strncmp.c			\
+		fonctions/ft_split_up.c			\
 		gnl/get_next_line.c				\
 		gnl/get_next_line_utils.c		\
 
@@ -26,6 +27,7 @@ BSRCS =	bonus/pipex_bonus.c				\
 		fonctions/ft_split.c			\
 		fonctions/ft_strjoin.c			\
 		fonctions/ft_strncmp.c			\
+		fonctions/ft_split_up.c			\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -36,7 +38,7 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o:%.c includes/pipex.h Makefile
+%.o:%.c includes/pipex.h #Makefile
 	cc $(CFLAGS) -c $< -o $@
 
 bonus: $(BOBJS)
