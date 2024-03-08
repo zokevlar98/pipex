@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:09:36 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/08 08:13:12 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/08 10:13:11 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,30 @@ int	ft_open(char *argv, int index)
 	if (file == -1)
 		error();
 	return (file);
+}
+
+void	child_process(char *argv, char *envp[])
+{
+	pid_t	pid;
+	int		fd[2];
+
+	if (pipe(fd) == -1)
+		error();
+	pid = fork();
+	if (pid == -1)
+		error();
+	if (pid == 0)
+	{
+		close(fd[0]);
+		dup2(fd[1], STDOUT_FILENO);
+		close(fd[1]);
+		execute(argv, envp);
+	}
+	else
+	{
+		close(fd[1]);
+		dup2(fd[0], STDIN_FILENO);
+		close(fd[0]);
+		waitpid(pid, NULL, 0);
+	}
 }
