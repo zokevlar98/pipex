@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:03 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/08 03:20:42 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/09 20:28:59 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,27 @@ void	process_child_2(int *fd, char *argv[], char *envp[])
 int	main(int argc, char *argv[], char *envp[])
 {
 	int		fd[2];
-	pid_t	pid;
+	pid_t	pid1;
+	pid_t	pid2;
 
 	if (argc == 5)
 	{
 		if (pipe(fd) == -1)
 			error();
-		pid = fork();
-		if (pid == -1)
+		pid1 = fork();
+		if (pid1 == -1)
 			error();
-		if (pid == 0)
+		if (pid1 == 0)
 			process_child(fd, argv, envp);
-		waitpid(pid, NULL, 0);
-		pid = fork();
-		if (pid == 0)
+		pid2 = fork();
+		if (pid2 == 0)
 			process_child_2(fd, argv, envp);
 	}
 	else
-	{
-		ft_putstr_fd("\033[31mError: Bad arguments\n", 2);
-		ft_putstr_fd("Like : ./pipex file1 cmd1 cmd2 file2\n", 1);
-		exit (EXIT_FAILURE);
-	}
+		usage();
+	close(fd[1]);
+	close(fd[0]);
+	wait(NULL);
+	wait(NULL);
 	return (0);
 }

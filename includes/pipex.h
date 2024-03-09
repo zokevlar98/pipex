@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:05 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/08 09:07:49 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/09 16:20:46 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ int		ft_open(char *argv, int index);
 void	ft_exeption(void);
 char	*get_next_line(int fd);
 char	**ft_split_up(char *s);
+void	usage(void);
 #endif
