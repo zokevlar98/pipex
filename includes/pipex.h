@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 00:57:05 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/09 16:20:46 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/09 21:03:20 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <errno.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <stddef.h>
 # include <sys/wait.h>
