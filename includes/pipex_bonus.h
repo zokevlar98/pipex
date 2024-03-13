@@ -6,7 +6,7 @@
 /*   By: zqouri <zqouri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 03:51:01 by zqouri            #+#    #+#             */
-/*   Updated: 2024/03/09 21:03:38 by zqouri           ###   ########.fr       */
+/*   Updated: 2024/03/12 15:30:39 by zqouri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <errno.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <stddef.h>
+# include <stdio.h>
 # include <sys/wait.h>
 # include "../gnl/get_next_line.h"
 

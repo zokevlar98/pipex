@@ -36,13 +36,13 @@ BOBJS = $(BSRCS:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	cc $(CFLAGS) $(OBJS) -o $(NAME)
+	cc $(OBJS) -o $(NAME)
 
-%.o:%.c includes/pipex.h Makefile includes/pipex_bonus.h gnl/get_next_line.h
+%.o:%.c includes/pipex.h includes/pipex_bonus.h gnl/get_next_line.h
 	cc $(CFLAGS) -c $< -o $@
 
 bonus: $(BOBJS)
-	cc $(CFLAGS) $(BOBJS) -o $(NAME)
+	cc $(BOBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(BOBJS)
